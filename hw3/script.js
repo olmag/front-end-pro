@@ -12,8 +12,12 @@ function getAge() {
     } else if(!isNaN(userValue)) {
         return `Рік вашого народження ${userValue}`;
     } else { 
-        throw Error(`Введіть корректний рік народження, а не ${userValue}!`);
+        throw Error(invalidUserAge(userValue));
     } 
+}
+
+function invalidUserAge(userValue) {
+    alert(`Оновіть сторінку та введіть рік народження цифрами, а не ${userValue}!`);
 }
 
 function getCity() {
