@@ -1,0 +1,17 @@
+#title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+#title__pic{
+    border: 2px pink solid;
+    width: 100px;
+    height: 80px;
+    background-color: pink;
+}
+
+.hide {
+   display: none; 
+}
