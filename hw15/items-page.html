@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My-profile Page</title>
+    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="item-list" class="item-container">
+        <div class="item-block" data-item-name="item:7745">
+            <h3>
+                Item
+            </h3>
+            <button class="buy-btn">
+                buy
+            </button>
+        </div>
+        <div class="item-block" data-item-name="item:7441">
+            <h3>
+                Item
+            </h3>
+            <button class="buy-btn">
+                buy
+            </button>
+        </div>
+        <div class="item-block" data-item-name="item:3341">
+            <h3>
+                Item
+            </h3>
+            <button class="buy-btn">
+                buy
+            </button>
+        </div>
+        <div class="item-block" data-item-name="item:141">
+            <h3>
+                Item
+            </h3>
+            <button class="buy-btn">
+                buy
+            </button>
+        </div>
+    </div>
+
+    <form class="checkout-form" id="checkout-user-form">
+        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="surname" placeholder="Surname"/>
+        <input type="text" list="citi-list" name="city" placeholder="City">
+        <datalist id="citi-list"></datalist>
+        <input type="number" min="1" name="np-number" placeholder="NP number"/>
+        <div>
+            <input type="radio" id="after-payment" name="payment" value="after-payment" checked>
+            <label for="after-payment">After payment</label>
+        
+            <input type="radio" id="by-bank-card" name="payment" value="by-bank-card">
+            <label for="by-bank-card">Payment by bank card</label>
+        </div>
+        <input type="number" min="1" name="item-quantity" placeholder="Quantity of elements"/>
+        <textarea name="message" placeholder="Message"></textarea>
+        <button type="submit" id="send-info-btn">
+            Send Info
+        </button>
+        <ul id="errors-container"></ul>
+    </form>
+
+    <br>
+    <div id="item-info">
+    </div>
+
+</body>
+</html>
