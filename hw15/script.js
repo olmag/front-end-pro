@@ -8,9 +8,9 @@ const datalist = document.getElementById("citi-list");
 const cities = ['Київ','Харків','Одеса','Дніпро','Донецьк','Запоріжжя','Львів','Кривий Ріг','Миколаїв','Маріуполь','Луганськ','Севастополь','Вінниця','Макіївка','Сімферополь','Херсон','Полтава','Чернігів','Черкаси','Суми','Житомир','Хмельницький','Чернівці','Горлівка','Рівне','Івано-Франківськ','Кременчук','Тернопіль','Луцьк','Біла Церква','Червоний Луч','Бердянськ','Ужгород','Павлоград'];
 
 const localStorageItemData = {
-    get: ()=> JSON.parse(localStorage.getItem(ITEM_INFO_LOCAL_STORAGE_KEY)),
-    set: (item)=> localStorage.setItem(ITEM_INFO_LOCAL_STORAGE_KEY, JSON.stringify(item)),
-    delete: ()=> localStorage.removeItem(ITEM_INFO_LOCAL_STORAGE_KEY),
+    get: () => JSON.parse(localStorage.getItem(ITEM_INFO_LOCAL_STORAGE_KEY)),
+    set: (item) => localStorage.setItem(ITEM_INFO_LOCAL_STORAGE_KEY, JSON.stringify(item)),
+    delete: () => localStorage.removeItem(ITEM_INFO_LOCAL_STORAGE_KEY)
 }
 
 let userChoice
@@ -42,9 +42,7 @@ function onCheckoutFormSubmit(e) {
         resetForm();
         showInfoAboutItemDelivery(userChoice, userData.userInfo);
     } else {
-        userData.errorFields.forEach(function(element){
-            showErrorFromForm(element);
-        });
+        userData.errorFields.forEach((element) => showErrorFromForm(element));
     }
 }
 
@@ -102,16 +100,11 @@ function setCitiesOnDatalist(cities, formDatalist) {
 }
 
 function getItemName(item) {
-    const itemName = item.dataset.itemName;
-    return itemName;
+    return item.dataset.itemName;
 }
 
 function getItemBySelector(el) {
     return el.closest('.item-block');
-}
-
-function getFormBySelector(el) {
-    return el.closest('.checkout-form');
 }
 
 function showForm() {
