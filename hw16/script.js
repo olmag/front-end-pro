@@ -14,25 +14,25 @@ const localStorageItemData = {
 }
 
 const validateForm = {
-    userName(value) {
+    getUserName(value) {
         const pattern = /^[a-zA-Z]+ [a-zA-Z]+$/
 
         if(value.match(pattern)){
-            return result = value
+            return value
         }
     },
-    phoneNumber(value) {
+    getUserPhoneNumber(value) {
         const pattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
 
         if(value.match(pattern)){
-            return result = value
+            return value
         }
     },
-    userEmail(value) {
+    getUserEmail(value) {
         const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
 
         if(value.match(pattern)){
-            return result = value
+            return value
         }
     }
 }
@@ -76,11 +76,11 @@ function getUserInfoFromForm(form) {
     const errorFields = [];
 
     for(const[name, value] of data) {
-        if (name === "firstAndLastName" && !validateForm.userName(value)){
+        if (name === "firstAndLastName" && !validateForm.getUserName(value)){
             errorFields.push(name);
-        } else if (name === "phone" && !validateForm.phoneNumber(value)){
+        } else if (name === "phone" && !validateForm.getUserPhoneNumber(value)){
             errorFields.push(name);
-        } else if(name === "email" && !validateForm.userEmail(value)){
+        } else if(name === "email" && !validateForm.getUserEmail(value)){
             errorFields.push(name);
         } else {
             if(!value.trim()){
@@ -96,7 +96,7 @@ function getUserInfoFromForm(form) {
 function showErrorFromForm(name) {
     const error = document.createElement('li');
     error.style.color = "red";
-    error.innerText = `вам потрібно заповнити поле з назвою ${name}`;
+    error.innerText = `Будь ласка введіть правильні данні у пуле${name}`;
     errorsContainer.append(error);
 }
 
