@@ -47,16 +47,16 @@ weatherForm.addEventListener('submit', onWeatherFormSubmit)
 function onWeatherFormSubmit(e) {
     e.preventDefault()
     const cityValue = city.value
+    const urlValue = {
+        q: cityValue,
+        units: 'metric',
+        APPID: '5d066958a60d315387d9492393935c19',
+    }
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?' + new URLSearchParams({
-    q: cityValue,
-    units: 'metric',
-    APPID: '5d066958a60d315387d9492393935c19',
-    }))
-    .then(data => data.text())
-    .then((text) => {
-        const jsonData = JSON.parse(text);
-        showWeather(jsonData)
+    fetch('https://api.openweathermap.org/data/2.5/weather?' + new URLSearchParams(urlValue))
+    .then(data => data.json())
+    .then((data) => {
+        showWeather(data)
 
     })
 }

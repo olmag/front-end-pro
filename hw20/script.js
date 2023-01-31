@@ -19,9 +19,9 @@ function onPostFormSubmit(e){
         const commentPromise = fetch(`${server}${userPostValue}/comments`);
 
         Promise.allSettled([postPromise, commentPromise])
-        .then(responses => responses.map(respons => respons.value.json()))
-        .then(data => {
-            data[0].then(el => showPost(el)).then(data[1].then(el => addComments(el)))
+        .then(([postRes, commentRes]) => {
+            {postRes = postRes.value.json(), commentRes = commentRes.value.json()}
+            postRes.then(el => showPost(el)).then(commentRes.then(el => addComments(el)));
         })
         .then(clearInput)
     }
