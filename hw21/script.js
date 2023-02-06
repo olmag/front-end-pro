@@ -4,7 +4,7 @@ class SuperMath {
 
     constructor() {
         this.calculation = new Object();
-        getUserValues(this.calculation)
+        this.input(this.calculation)
 
     }
 
@@ -14,7 +14,7 @@ class SuperMath {
         if(action){
             this.showResult()
         } else {
-            getUserValues(this.calculation)
+            this.input(this.calculation)
             this.check()
         }
     }
@@ -24,19 +24,16 @@ class SuperMath {
         calculator(this.calculation.operand, this.calculation.X, this.calculation.Y, result)
     }
 
+    input(userValueObj) {
+        getOperator(userValueObj)
+        getOperand(userValueObj, "X")
+        getOperand(userValueObj, "Y")
+    }
+
 }
 
 const p = new SuperMath()
 p.check()
-
-function getUserValues(userValueObj) {
-
-    getOperator(userValueObj)
-    getOperand(userValueObj, "X")
-    getOperand(userValueObj, "Y")
-}
-
-
 
 function getOperator(userValueObj) {
     const operator = prompt('Введите значение +, -, *, /?');
