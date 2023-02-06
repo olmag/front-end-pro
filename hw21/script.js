@@ -1,27 +1,24 @@
 const allowedOperators = ['+', '-', '*', '/'];
 
+const calculation = new Object();
+getUserValues(calculation)
+
 class SuperMath {
 
-    constructor() {
-        this.calculation = new Object();
-        this.input(this.calculation)
-
-    }
-
-    check() {
-        const action = confirm(`Чи бажаєте ви побачити результат зробивши дію ${this.calculation.operand}?`)
+    check(obj) {
+        const action = confirm(`Чи бажаєте ви побачити результат зробивши дію ${obj.operator}?`)
 
         if(action){
-            this.showResult()
+            this.showResult(obj)
         } else {
-            this.input(this.calculation)
-            this.check()
+            this.input(obj)
+            this.check(obj)
         }
     }
 
-    showResult() {
-        const result = countUp(this.calculation.operand, this.calculation.X, this.calculation.Y)
-        calculator(this.calculation.operand, this.calculation.X, this.calculation.Y, result)
+    showResult(obj) {
+        const result = countUp(obj.operator, obj.X, obj.Y)
+        calculator(obj.operator, obj.X, obj.Y, result)
     }
 
     input(userValueObj) {
@@ -33,13 +30,21 @@ class SuperMath {
 }
 
 const p = new SuperMath()
-p.check()
+p.check(calculation)
+
+
+function getUserValues(userValueObj) {
+
+    getOperator(userValueObj)
+    getOperand(userValueObj, "X")
+    getOperand(userValueObj, "Y")
+}
 
 function getOperator(userValueObj) {
     const operator = prompt('Введите значение +, -, *, /?');
 
     if (validateOperator(operator)) {
-        userValueObj.operand = operator;
+        userValueObj.operator = operator;
     } else { 
         throw Error (`Error! Invalid operator ${operator}!`);
     }
