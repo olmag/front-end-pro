@@ -1,0 +1,7 @@
+.logo {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    color: white;
+    font-size: xx-large;
+}
