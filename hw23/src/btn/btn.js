@@ -1,0 +1,1 @@
+export const showBtn = () => console.log("btn")
